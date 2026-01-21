@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bigelfy2</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>bigelfy2</h1>
+            <p class="subtitle">the best hosting site since bigelfy1!</p>
+        </header>
+
+        <section id="auth-section">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('login')">Login</button>
+                <button class="tab-btn" onclick="switchTab('register')">Register</button>
+            </div>
+
+            <form id="login-form" class="auth-form">
+                <h2>Welcome Back</h2>
+                <input type="text" id="login-username" placeholder="Username" required>
+                <input type="password" id="login-password" placeholder="Password" required>
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+
+            <form id="register-form" class="auth-form hidden">
+                <h2>Create Account</h2>
+                <input type="text" id="reg-username" placeholder="Username" required>
+                <input type="email" id="reg-email" placeholder="Email" required>
+                <input type="password" id="reg-password" placeholder="Password" required>
+                <button type="submit" class="btn-secondary">Register</button>
+            </form>
+            
+            <p id="auth-message" class="message"></p>
+        </section>
+
+        <section id="dashboard-section" class="hidden">
+            <div class="user-bar">
+                <span>Hello, <b id="display-username">User</b></span>
+                <button onclick="logout()" class="btn-small">Logout</button>
+            </div>
+
+            <div class="dashboard-tabs">
+                <button class="dash-tab-btn active" onclick="switchDashTab('upload')">Upload New Site</button>
+                <button class="dash-tab-btn" onclick="switchDashTab('sites')">My Sites</button>
+            </div>
+
+            <div id="upload-tab" class="dash-tab-content">
+                <div id="drop-zone" class="drop-zone">
+                    <div class="icon">📂</div>
+                    <h3>Drag & Drop your ZIP or HTML file here</h3>
+                    <p>or click to browse</p>
+                    <input type="file" id="file-input" accept=".zip,.html" hidden>
+                </div>
+
+                <div id="upload-status" class="status-box hidden">
+                    <p id="status-text">Uploading...</p>
+                    <div id="result-link" class="hidden">
+                        <p>Site Deployed Successfully! 🚀</p>
+                        <a href="#" id="deployed-url" target="_blank">Visit Website</a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sites-tab" class="dash-tab-content hidden">
+                <div class="sites-header">
+                    <h2>My Deployed Sites</h2>
+                    <button onclick="refreshSites()" class="btn-small">Refresh</button>
+                </div>
+                <div id="sites-list">
+                    <p class="loading">Loading sites...</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

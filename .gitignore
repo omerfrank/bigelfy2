@@ -1,0 +1,4 @@
+app.zip
+.venv
+oci_key
+test_oci.py
